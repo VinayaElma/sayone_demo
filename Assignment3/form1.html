@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <table class="table table-bordered" id="records_table">
+            <thead>
+              <tr>
+                <th scope="col">USERID</th>
+                <th scope="col">ID</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">BODY</th>
+              </tr>
+            </thead>
+          </table>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $.getJSON("https://jsonplaceholder.typicode.com/posts",function(response){
+                $.each(response, function(i, item) {
+                var $tr = $('<tr>').append(
+                $('<td>').text(item.userId),
+                $('<td>').text(item.id),
+                $('<td>').text(item.title),
+                $('<td>').text(item.body)
+            ); 
+            $('#records_table').append($tr);
+            });
+
+            });
+            });
+            
+        </script>
+    </body>
+</html> 
