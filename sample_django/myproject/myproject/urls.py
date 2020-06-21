@@ -18,7 +18,8 @@ from django.urls import path, re_path
 from boards import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    re_path('boards/(?P<pk>[0-9]+)/', views.board_topics, name='board_topics'),
-    path('admin/', admin.site.urls),
+    re_path(r'^$', views.home, name='home'),
+    re_path(r'^boards/(?P<pk>[0-9]+)/$', views.board_topics, name='board_topics'),
+    re_path(r'^boards/(?P<pk>[0-9]+)/new/$', views.new_topic, name='new_topic'),
+    re_path(r'^admin/', admin.site.urls),
 ]
