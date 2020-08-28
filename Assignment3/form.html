@@ -1,0 +1,181 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link href= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"> 
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div>
+                <h1>FORM</h1>
+                <div>
+                    <form id="reg-form">
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="email" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" name="email">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="phno" class="col-sm-2 col-form-label">Mobile</label>
+                          
+                          <div class="col-sm-10 " id="phoneError">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                              </div>
+                              <input type="text" class="form-control" id="phno" name="phno">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="dob" class="col-sm-2 col-form-label">DOB</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="dob" name="dob">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="age" class="col-sm-2 col-form-label">Age</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="age" name="age">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="country" class="col-sm-2 col-form-label ">Country</label>
+                          <div class="col-sm-10">
+                            <select class="custom-select" id="country" name="country" >
+                              <option></option>
+                              <option value="usa">USA</option>
+                              <option value="india">India</option>
+                              <option value="france">France</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="state" class="col-sm-2 col-form-label">State</label>
+                          <div class="col-sm-10">
+                            <select class="custom-select" id="state" name="state">
+                              <option></option>
+                              </select>
+                          </div>
+                        </div>
+                        <div style="text-align: center;">
+                          <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" > </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        
+        <script>
+          $(document).ready(function() {
+            $("#dob").datepicker({
+              onSelect: function(value, ui) {
+                var today = new Date(),
+                dob = new Date(value),
+                age = new Date(today - dob).getFullYear() - 1970;
+                $('#age').val(age);
+            },
+            
+            changeMonth: true,
+            changeYear: true, 
+            yearRange: '1990:2020',
+            });
+          });
+
+          $(document).ready(function(){
+            
+            $.validator.addMethod("validphno",function(value,element){
+             return this.optional(element) || /^\d{10}$/.test(value) ; 
+            },'Enter valid mobile number');
+
+            $("#reg-form").validate({
+              rules: {
+              name:"required",
+              email: {
+                required: true,
+                email: true,
+              },
+              dob:{
+                required:true,
+              },
+              country:{
+                required:true,
+              },
+             
+              state:{
+                required:true
+              },
+              phno:{
+                validphno:true
+              }
+              },
+              messages: {
+   
+                name: "Name  is required",
+                email: {
+                  email:"Enter a valid email",
+                  required:"Email is required",
+                },
+                phno:"Enter a valid number",
+                dob: "DOB is required",
+                country:"Country is required",
+                state:"State is required",
+              },
+              
+              submitHandler: function(form) {
+                form.submit();
+              }
+              });
+          });
+
+          
+        $(document).ready(function() {
+          $("#country").select2({
+            width:'100%'
+          });
+          
+          $("#country").on("select2:select",function(event){
+            $("#state").select2({
+            width:'100%'
+          });
+            $("#state").empty();
+            var $countries = {
+                    "USA":["New York", "Los Angeles", "California"],
+                    "India":["Kerala", "TamilNadu", "Karnataka"],
+                    "France":["Paris", "Lyon", "Normandy"],
+            };
+            var country=event.params.data;
+            var states=$countries[country.text];
+            $("#state").select2({
+              data:states,
+              width:'100%'
+            });
+          });
+          });
+
+          
+          
+
+
+        </script>
+        
+    </body>
+</html>  

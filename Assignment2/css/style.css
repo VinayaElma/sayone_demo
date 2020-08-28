@@ -1,0 +1,193 @@
+body{
+	margin: 0px;
+	font-size: 1rem;
+	font-weight:400;
+	line-height:1.5;
+	color:#212529;
+	text-align: left;
+	background-color: #fff;
+	display: block;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+div{
+	display: block;
+}
+
+.bg-warning{
+	background-color: #ffc107!important;
+}
+
+
+.navbar{
+	position: relative;
+	
+	align-items: center;
+	-webkit-box-pack:justify;
+	justify-content: space-between;
+	
+}
+
+.navbar-brand{
+font-size: 2rem;
+line-height: inherit;
+white-space: nowrap;
+font-family: cursive;
+margin-left: 10px;
+}
+
+.align-top{
+	vertical-align: top!important;
+}
+
+.navbar-dark .navbar-brand{
+	color: #fff;
+}
+ .navbar-toggler{
+	 background-color: #212529;
+ }
+element.style{
+	background: #f1f1f1;
+	background-image: initial;
+	background-position: initial; 
+	background-size: initial;
+	background-repeat: initial;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: rgb(241,241,241);
+}
+.pb-3, .py-3{
+	padding-bottom: 1rem!important;
+}
+
+.pt-3, .py-3{
+	padding-bottom: 1rem!important;
+}
+
+  
+  .navbar-fixed-top, .navbar-fixed-bottom {
+	position: relative; 
+  }
+.container{
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.img-fluid{
+	max-width: 100%;
+	height: auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px ;
+	margin-left: -15px ;
+}
+
+.text-center{
+	text-align: center;
+}
+.mt-3, .my-3{
+	margin-top: 1rem!important;
+}
+
+p{
+	text-align: justify;
+}
+.col-md-8{
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.col-md-4{
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.pb-4, .py-4{
+	padding-bottom: 1.5rem!important;
+}
+
+.pt-4, .py-4{
+	padding-top: 1.5rem!important;
+}
+.mb-2, .my-2{
+	margin-bottom: .5rem!important;
+}
+
+
+h3{
+font-size: 1.5rem;
+font-weight: bold;
+margin-top: 10px;
+margin-left: 10px;
+text-align: left;
+}
+
+h6,h5{
+	text-align: left;
+	font-weight: 600;
+}
+
+
+#name{
+	margin-top: 150px;
+}
+.btn-sm{
+	background-color: #FF4500;
+	color: #f1f1f1;
+	border: none;
+	margin-bottom: 50px;
+	margin-top: 10px;
+}
+
+.img-fluid{
+	max-width: 100%;
+	height:auto;
+}
+
+
+
+#image2{
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+#image1{
+	width:20px;
+	height: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 0.5px;
+	margin-right: 0.5px;
+}
+
+#image3{
+	height: 200px;
+	width: 100%;
+	
+}
+
+#footer-heading{
+	text-align: justify;
+	margin-bottom: 20px;
+}
+
+.txt{
+	text-align: left;
+}
+
+.txt1{
+	font-size: 12pt;
+}
