@@ -2,7 +2,7 @@ asgiref==3.2.9
 automium==0.2.6
 automium-web==0.1.1
 click==7.1.2
-Django==3.0.14
+Django==3.1.9
 django-widget-tweaks==1.4.8
 Flask==1.1.2
 itsdangerous==1.1.0
